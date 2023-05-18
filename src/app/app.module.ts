@@ -16,6 +16,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccountComponent } from './pages/account/account.component';
 import { HistoricComponent } from './pages/historic/historic.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HistoricComponent } from './pages/historic/historic.component';
     DotaComponent,
     AccountComponent,
     HistoricComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

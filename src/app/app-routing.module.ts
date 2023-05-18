@@ -5,6 +5,7 @@ import { LolComponent } from './pages/lol/lol.component';
 import { DotaComponent } from './pages/dota/dota.component';
 import { AccountComponent } from './pages/account/account.component';
 import { HistoricComponent } from './pages/historic/historic.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path:'account/historic',
     component: HistoricComponent
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
