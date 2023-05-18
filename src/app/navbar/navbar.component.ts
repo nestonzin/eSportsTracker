@@ -28,17 +28,14 @@ export class NavbarComponent {
             label: 'League of Legends',
             icon: 'pi pi-fw pi-android',
             command: () => {
-              this.router.navigate(['/lol']);
+              this.router.navigate(['lol']);
             },
           },
-          // {
-          //   separator: true,
-          // },
           {
             label: 'Defense of the Ancients 2',
             icon: 'pi pi-fw pi-android',
             command: () => {
-              this.router.navigate(['/dota']);
+              this.router.navigate(['dota']);
             },
           },
         ],
@@ -48,17 +45,17 @@ export class NavbarComponent {
         icon: 'pi pi-fw pi-user',
         items: [
           {
-            label: 'Historico',
-            icon: 'pi pi-fw pi-history',
-            command: () => {
-              this.router.navigate(['/historic']);
-            },
-          },
-          {
             label: 'Informações',
             icon: 'pi pi-fw pi-info-circle',
             command: () => {
-              this.router.navigate(['/account']);
+              this.router.navigate(['account']);
+            },
+          },
+          {
+            label: 'Historico',
+            icon: 'pi pi-fw pi-history',
+            command: () => {
+              this.router.navigate(['account', 'historic']);
             },
           },
         ],

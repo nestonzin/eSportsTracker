@@ -22,13 +22,11 @@ const routes: Routes = [
   {
     path: 'account',
     component: AccountComponent,
-    children: [
-      {
-        path: 'historic',
-        component: HistoricComponent,
-      },
-    ],
   },
+  {
+    path:'account/historic',
+    component: HistoricComponent
+  }
 ];
 
 @NgModule({
