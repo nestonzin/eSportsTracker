@@ -1,0 +1,17 @@
+.custom-card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .custom-card-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}

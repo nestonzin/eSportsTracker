@@ -8,13 +8,14 @@ import { ButtonModule } from 'primeng/button';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MenubarModule } from 'primeng/menubar';
 import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { LolComponent } from './lol/lol.component';
-import { DotaComponent } from './dota/dota.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LolComponent } from './pages/lol/lol.component';
+import { DotaComponent } from './pages/dota/dota.component';
 import { CardModule } from 'primeng/card';
 import { AvatarModule } from 'primeng/avatar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AccountComponent } from './account/account.component';
+import { AccountComponent } from './pages/account/account.component';
+import { HistoricComponent } from './pages/historic/historic.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AccountComponent } from './account/account.component';
     LolComponent,
     DotaComponent,
     AccountComponent,
+    HistoricComponent,
   ],
   imports: [
     BrowserModule,

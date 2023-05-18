@@ -46,9 +46,22 @@ export class NavbarComponent {
       {
         label: 'Conta',
         icon: 'pi pi-fw pi-user',
-        command: () => {
-          this.router.navigate(['/account']);
-        },
+        items: [
+          {
+            label: 'Historico',
+            icon: 'pi pi-fw pi-history',
+            command: () => {
+              this.router.navigate(['/historic']);
+            },
+          },
+          {
+            label: 'Informações',
+            icon: 'pi pi-fw pi-info-circle',
+            command: () => {
+              this.router.navigate(['/account']);
+            },
+          },
+        ],
       },
       {
         label: 'Quit',
