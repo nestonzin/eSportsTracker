@@ -23,6 +23,7 @@ const routes: Routes = [
   {
     path: 'account',
     component: AccountComponent,
+    pathMatch:'full'
   },
   {
     path:'account/historic',

@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccountComponent } from './pages/account/account.component';
 import { HistoricComponent } from './pages/historic/historic.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     CardModule,
     AvatarModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    PaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
