@@ -60,10 +60,6 @@ export class NavbarComponent {
           },
         ],
       },
-      {
-        label: 'Quit',
-        icon: 'pi pi-fw pi-power-off',
-      },
     ];
   }
 }
