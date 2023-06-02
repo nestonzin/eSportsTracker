@@ -19,6 +19,11 @@ import { HistoricComponent } from './pages/historic/historic.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PaginatorModule } from 'primeng/paginator';
+import { LoginComponent } from './pages/login/login.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+import { DividerModule } from 'primeng/divider';
 
 @NgModule({
   declarations: [
@@ -31,6 +36,8 @@ import { PaginatorModule } from 'primeng/paginator';
     AccountComponent,
     HistoricComponent,
     PageNotFoundComponent,
+    LoginComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +49,9 @@ import { PaginatorModule } from 'primeng/paginator';
     BrowserAnimationsModule,
     HttpClientModule,
     PaginatorModule,
+    InputTextModule,
+    PasswordModule,
+    DividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

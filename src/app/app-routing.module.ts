@@ -6,6 +6,8 @@ import { DotaComponent } from './pages/dota/dota.component';
 import { AccountComponent } from './pages/account/account.component';
 import { HistoricComponent } from './pages/historic/historic.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
 
 const routes: Routes = [
   {
@@ -21,18 +23,26 @@ const routes: Routes = [
     component: DotaComponent,
   },
   {
-    path: 'account',
-    component: AccountComponent,
-    pathMatch:'full'
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path:'account/historic',
-    component: HistoricComponent
+    path: 'signup',
+    component: SignUpComponent,
+  },
+  {
+    path: 'account',
+    component: AccountComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'account/historic',
+    component: HistoricComponent,
   },
   {
     path: '**',
-    component: PageNotFoundComponent
-  }
+    component: PageNotFoundComponent,
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,26 @@
+<div class="home-wrapper">
+  <div class="login-wrapper">
+    <div class="input-wrapper">
+      <div class="field">
+        <label for="username">Username</label>
+        <input pInputText id="username" type="text" />
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+
+        <p-password class="ng-invalid ng-dirty"></p-password>
+      </div>
+      <p-button label="Login"></p-button>
+    </div>
+  </div>
+  <p-divider layout="vertical">
+    <b class="custom-bold">OR</b>
+  </p-divider>
+  <div class="signup-wrapper">
+    <p-button
+      label="Sign Up"
+      icon="pi pi-user-plus"
+      routerLink="/signup"
+    ></p-button>
+  </div>
+</div>
