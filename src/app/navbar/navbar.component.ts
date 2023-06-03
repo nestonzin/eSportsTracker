@@ -41,7 +41,7 @@ export class NavbarComponent {
         ],
       },
       {
-        label: 'Sign-up/Login',
+        label: 'Login/Sign-up',
         icon: 'pi pi-fw pi-user',
         command: () => {
           this.router.navigate(['/login']);
