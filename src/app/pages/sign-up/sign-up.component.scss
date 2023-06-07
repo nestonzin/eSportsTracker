@@ -3,9 +3,14 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  font-family: Lato;
+
+  padding-bottom: 5rem;
 }
 
 h1 {
   text-align: center;
+}
+
+.input-wrapper label {
+  font-weight: bold;
 }

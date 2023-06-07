@@ -7,7 +7,7 @@ import { ISchedule } from './schedulesTypes';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  scheduleData: any = [];
+  scheduleData = {} as ISchedule;
   scheduleDataDisplayed: any;
 
   currentPage = 1;
