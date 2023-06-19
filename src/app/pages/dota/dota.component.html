@@ -1,1 +1,33 @@
-<p>dota works!</p>
+<div class="wrapper">
+  <div class="custom-card-wrapper">
+    <p-card *ngFor="let proMatch of proMatchesDisplayed">
+      <h1>
+        {{ proMatch.league_name }}
+      </h1>
+      <div class="teams-wrapper">
+        <div class="team-wrapper">
+          <h2>Dire</h2>
+          <h2>{{ proMatch.dire_name }}</h2>
+        </div>
+        <div class="team-wrapper">
+          <h2>Radiante</h2>
+          <h2>{{ proMatch.radiant_name }}</h2>
+        </div>
+      </div>
+      <h3>
+        Resultado:
+        {{
+          proMatch.radiant_win
+            ? "Vitoria do time radiante"
+            : "Vitoria do time dire"
+        }}
+      </h3>
+    </p-card>
+  </div>
+  <p-paginator
+    [rows]="itemsPerPage"
+    [totalRecords]="totalProMatches"
+    (onPageChange)="onPageChange($event)"
+    [rowsPerPageOptions]="[8, 16, 24]"
+  ></p-paginator>
+</div>
