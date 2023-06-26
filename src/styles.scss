@@ -7,6 +7,10 @@ body {
   font-family: Lato;
 }
 
+.custom-spinner .p-progress-spinner-circle {
+  stroke: white !important;
+}
+
 .custom-card-wrapper {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

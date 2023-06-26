@@ -3,7 +3,6 @@
     <ng-container *ngIf="isLoading">
       <div
         class="spinner-container"
-        class="spinner-container"
         style="
           grid-column: 1 / -1;
           grid-row: 1;
@@ -11,7 +10,10 @@
           padding: 11rem;
         "
       >
-        <p-progressSpinner></p-progressSpinner>
+        <p-progressSpinner
+          aria-label="Loading"
+          class="custom-spinner"
+        ></p-progressSpinner>
       </div>
     </ng-container>
 
