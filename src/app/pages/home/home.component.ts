@@ -13,6 +13,8 @@ export class HomeComponent {
   currentPage = 1;
   itemsPerPage = 8;
 
+  isLoading: boolean = true;
+
   constructor(private LolService: LolService) {}
 
   ngOnInit() {
@@ -20,12 +22,15 @@ export class HomeComponent {
   }
 
   getScheduleData() {
+    this.isLoading = true;
     this.LolService.getSchedule().subscribe({
       next: (data) => {
         this.scheduleData = data;
         console.log(data);
         this.onPageChange({ first: 0, rows: this.itemsPerPage });
+        this.isLoading = false;
       },
+
       error: (error) => {
         console.log('erro', error);
       },

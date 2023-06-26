@@ -3,7 +3,9 @@
     <p-card
       header="{{ event?.blockName }}"
       *ngFor="let event of scheduleDataDisplayed"
+      class="card"
     >
+      <!-- <ng-template pTemplate="header"> -->
       <h1>
         {{ event.league.name }}
       </h1>
@@ -22,6 +24,7 @@
           <h4>{{ event.match.teams[1].result.gameWins }}</h4>
         </div>
       </div>
+      <!-- </ng-template> -->
     </p-card>
   </div>
   <p-paginator

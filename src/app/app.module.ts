@@ -24,6 +24,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { DividerModule } from 'primeng/divider';
     InputTextModule,
     PasswordModule,
     DividerModule,
+    ProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

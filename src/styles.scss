@@ -9,10 +9,23 @@ body {
 
 .custom-card-wrapper {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   text-align: center;
   gap: 1rem;
   padding: 1rem;
+}
+
+.card {
+  padding: 2rem;
+  -webkit-box-shadow: 1px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.01);
 }
 
 .teams-wrapper {
