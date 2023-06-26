@@ -1,28 +1,44 @@
 <div class="wrapper">
   <div class="custom-card-wrapper">
-    <p-card *ngFor="let proMatch of proMatchesDisplayed" class="cardDota">
-      <h1>
-        {{ proMatch.league_name }}
-      </h1>
-      <div class="teams-wrapper">
-        <div class="team-wrapper">
-          <h2>Dire</h2>
-          <h2>{{ proMatch.dire_name }}</h2>
-        </div>
-        <div class="team-wrapper">
-          <h2>Radiante</h2>
-          <h2>{{ proMatch.radiant_name }}</h2>
-        </div>
+    <ng-container *ngIf="isLoading">
+      <div
+        class="spinner-container"
+        style="
+          grid-column: 1 / -1;
+          grid-row: 1;
+          text-align: center;
+          padding: 11rem;
+        "
+      >
+        <p-progressSpinner></p-progressSpinner>
       </div>
-      <h3>
-        Resultado:
-        {{
-          proMatch.radiant_win
-            ? "Vitoria do time radiante"
-            : "Vitoria do time dire"
-        }}
-      </h3>
-    </p-card>
+    </ng-container>
+
+    <ng-container *ngIf="!isLoading">
+      <p-card *ngFor="let proMatch of proMatchesDisplayed" class="cardDota">
+        <h1>
+          {{ proMatch.league_name }}
+        </h1>
+        <div class="teams-wrapper">
+          <div class="team-wrapper">
+            <h2>Dire</h2>
+            <h2>{{ proMatch.dire_name }}</h2>
+          </div>
+          <div class="team-wrapper">
+            <h2>Radiante</h2>
+            <h2>{{ proMatch.radiant_name }}</h2>
+          </div>
+        </div>
+        <h3>
+          Resultado:
+          {{
+            proMatch.radiant_win
+              ? "Vitoria do time radiante"
+              : "Vitoria do time dire"
+          }}
+        </h3>
+      </p-card>
+    </ng-container>
   </div>
   <p-paginator
     [rows]="itemsPerPage"

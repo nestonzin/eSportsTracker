@@ -12,7 +12,7 @@ export class DotaComponent implements OnInit {
   totalProMatches: number = 0;
   currentPage = 1;
   itemsPerPage = 8;
-
+  isLoading: boolean = true;
   constructor(private dotaService: DotaService) {}
 
   ngOnInit(): void {
@@ -20,12 +20,14 @@ export class DotaComponent implements OnInit {
   }
 
   getDotaProMatches(): void {
+    this.isLoading = true;
     this.dotaService.getDotaProMatches().subscribe(
       (proMatches) => {
         console.log(proMatches, 'proMatches');
         this.proMatches = proMatches;
         this.totalProMatches = proMatches.length;
         this.updateProMatchesDisplayed();
+        this.isLoading = false;
       },
       (error) => {
         console.log(error, 'error');
