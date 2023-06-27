@@ -27,6 +27,8 @@
           {{ event.league.name }}
         </h1>
         <h2>Status: {{ event.state }}</h2>
+        <a [routerLink]="'/match/' + event.match.id">Ir para a partida</a>
+
         <div class="teams-wrapper">
           <div class="team-wrapper">
             <h3>{{ event.match.teams[0].code }}</h3>

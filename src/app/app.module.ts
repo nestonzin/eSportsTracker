@@ -25,6 +25,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { MatchComponent } from './pages/match/match.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     PageNotFoundComponent,
     LoginComponent,
     SignUpComponent,
+    MatchComponent,
   ],
   imports: [
     BrowserModule,

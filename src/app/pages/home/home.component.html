@@ -43,7 +43,7 @@
   </div>
   <p-paginator
     [rows]="itemsPerPage"
-    [totalRecords]="scheduleData?.data?.schedule?.events?.length || 0"
+    [totalRecords]="scheduleData.data.schedule.events.length || 0"
     (onPageChange)="onPageChange($event)"
     [rowsPerPageOptions]="[8, 16, 24]"
   ></p-paginator>

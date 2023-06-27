@@ -8,6 +8,7 @@ import { HistoricComponent } from './pages/historic/historic.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { MatchComponent } from './pages/match/match.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'account/historic',
     component: HistoricComponent,
+  },
+  {
+    path: 'match/:id',
+    component: MatchComponent,
   },
   {
     path: '**',
