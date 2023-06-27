@@ -27,7 +27,14 @@
           {{ event.league.name }}
         </h1>
         <h2>Status: {{ event.state }}</h2>
-        <a [routerLink]="'/match/' + event.match.id">Ir para a partida</a>
+        <!-- <a [routerLink]="'/match/' + event.match.id">Ir para a partida</a> -->
+
+        <p-button
+          label="Ir para a partida
+          "
+          styleClass="p-button-outlined p-button-sm"
+          [routerLink]="'/match/' + event.match.id"
+        ></p-button>
 
         <div class="teams-wrapper">
           <div class="team-wrapper">
