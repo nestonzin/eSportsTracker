@@ -8,13 +8,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MatchComponent {
   id: string;
+
   constructor(private route: ActivatedRoute) {
     this.id = '';
   }
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.id = params['id'];
-      console.log(this.id); // Exibe o valor do parâmetro id no console
+      console.log(this.id);
     });
   }
 }

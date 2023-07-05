@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LolService } from '../../service/lol.service';
+import { Schedule } from '../home/schedulesTypes';
 
 @Component({
   selector: 'app-lol',
@@ -24,8 +25,10 @@ export class LolComponent {
     this.isLoading = true;
     this.LolService.getSchedule().subscribe({
       next: (data) => {
-        this.scheduleData = data;
-        console.log(data);
+        this.scheduleData = data.data.schedule.events.filter(
+          (data) => data.state != 'completed'
+        );
+        console.log(this.scheduleData, "jogos");
         this.onPageChange({ first: 0, rows: this.itemsPerPage });
         this.isLoading = false;
       },
@@ -39,7 +42,7 @@ export class LolComponent {
     const startIndex = event.first;
     const endIndex = event.first + event.rows;
 
-    this.scheduleDataDisplayed = this.scheduleData.data?.schedule?.events.slice(
+    this.scheduleDataDisplayed = this.scheduleData.slice(
       startIndex,
       endIndex
     );

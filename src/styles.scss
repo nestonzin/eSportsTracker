@@ -20,7 +20,6 @@ body {
 }
 
 .card {
-  padding: 2rem;
   -webkit-box-shadow: 1px 5px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 1px 5px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 1px 5px 5px 0px rgba(0, 0, 0, 0.75);
@@ -41,6 +40,10 @@ body {
 .team-wrapper img {
   max-width: 2rem;
   width: 100%;
+}
+
+::ng-deep .p-progress-spinner .p-progress-spinner-circle {
+  border-color: white !important;
 }
 
 h1,

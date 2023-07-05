@@ -26,7 +26,7 @@ import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { MatchComponent } from './pages/match/match.component';
-
+import { TableModule } from 'primeng/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +56,7 @@ import { MatchComponent } from './pages/match/match.component';
     PasswordModule,
     DividerModule,
     ProgressSpinnerModule,
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

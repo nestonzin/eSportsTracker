@@ -24,10 +24,9 @@
         class="card"
       >
         <h1>
-          {{ event.league.name }}
+          {{ event?.league?.name }}
         </h1>
-        <h2>Status: {{ event.state }}</h2>
-        <!-- <a [routerLink]="'/match/' + event.match.id">Ir para a partida</a> -->
+        <h2>Status: {{ event?.state }}</h2>
 
         <p-button
           label="Ir para a partida
@@ -38,16 +37,16 @@
 
         <div class="teams-wrapper">
           <div class="team-wrapper">
-            <h3>{{ event.match.teams[0].code }}</h3>
-            <img src="{{ event.match.teams[0].image }}" alt="" />
-            <h4>{{ event.match.teams[0].result.outcome }}</h4>
-            <h4>{{ event.match.teams[0].result.gameWins }}</h4>
+            <h3>{{ event?.match?.teams[0]?.code }}</h3>
+            <img src="{{ event?.match?.teams[0]?.image }}" alt="" />
+            <!-- <h4>{{ event?.match?.teams[0]?.result?.outcome }}</h4>
+            <h4>{{ event?.match?.teams[0]?.result?.gameWins }}</h4> -->
           </div>
           <div class="team-wrapper">
-            <h3>{{ event.match.teams[1].code }}</h3>
-            <img src="{{ event.match.teams[1].image }}" alt="" />
-            <h4>{{ event.match.teams[1].result.outcome }}</h4>
-            <h4>{{ event.match.teams[1].result.gameWins }}</h4>
+            <h3>{{ event?.match?.teams[1]?.code }}</h3>
+            <img src="{{ event?.match?.teams[1]?.image }}" alt="" />
+            <!-- <h4>{{ event?.match?.teams[1]?.result?.outcome }}</h4>
+            <h4>{{ event?.match?.teams[1]?.result?.gameWins }}</h4> -->
           </div>
         </div>
       </p-card>
@@ -55,8 +54,8 @@
   </div>
   <p-paginator
     [rows]="itemsPerPage"
-    [totalRecords]="scheduleData?.data?.schedule?.events?.length || 0"
+    [totalRecords]="scheduleData?.length || 0"
     (onPageChange)="onPageChange($event)"
-    [rowsPerPageOptions]="[8, 16, 24]"
+    [rowsPerPageOptions]="[8, 16]"
   ></p-paginator>
 </div>
