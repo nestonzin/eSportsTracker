@@ -32,7 +32,7 @@
           label="Ir para a partida
           "
           styleClass="p-button-outlined p-button-sm"
-          [routerLink]="'/match/' + event.match.id"
+          (click)="navigateToMatch(event?.match?.id)"
         ></p-button>
 
         <div class="teams-wrapper">

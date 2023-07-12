@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  text = 'exemplo de texto para o pipe, ta minusculo'
+  currentDate: Date = new Date();
 }

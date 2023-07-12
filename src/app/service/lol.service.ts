@@ -10,6 +10,8 @@ export class LolService {
   private apiUrl =
     'https://esports-api.lolesports.com/persisted/gw/getSchedule';
 
+  private apiMatchWindow = 'https://feed.lolesports.com/livestats/v1/window';
+
   constructor(private http: HttpClient) {}
 
   headers = new HttpHeaders({
@@ -23,5 +25,11 @@ export class LolService {
       headers: this.headers,
       params: params,
     });
+  }
+
+  getGameWindow(gameId: string): Observable<any> {
+    const url = `${this.apiMatchWindow}/${gameId}`;
+    const params = new HttpParams().set('hl', 'pt-BR');
+    return this.http.get(url, { headers: this.headers, params });
   }
 }

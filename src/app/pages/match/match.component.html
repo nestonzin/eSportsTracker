@@ -1,29 +1,43 @@
-<p>match works!</p>
-<p>idz {{ id }}</p>
-
-<p-table [tableStyle]="{ 'min-width': '50rem' }">
+<p-table
+  [value]="
+    gameWindow?.gameMetadata?.blueTeamMetadata?.participantMetadata ?? []
+  "
+>
   <ng-template pTemplate="header" let-columns>
     <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Category</th>
-      <th>Quantity</th>
-      <th>Status</th>
-      <th>Reviews</th>
+      <th>Summoner Name</th>
+      <th>Role</th>
+      <th>Level</th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-product let-columns="columns">
-    <!-- <tr>
-      <td>{{ product.name }}</td>
-      <td>{{ product.price | currency : "USD" }}</td>
-      <td>{{ product.category }}</td>
-      <td>{{ product.quantity }}</td>
-      <td><p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product.inventoryStatus)"></p-tag></td>
-      <td><p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td>
-    </tr> -->
-
+  <ng-template pTemplate="body" let-participant>
     <tr>
-      <td></td>
+      <td>{{ participant?.summonerName }}</td>
+      <td>{{ participant?.role }}</td>
+      <td>
+        Lv{{ gameWindow?.frames?.[9]?.blueTeam?.participants?.[0]?.level }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-table
+  [value]="gameWindow?.gameMetadata?.redTeamMetadata?.participantMetadata ?? []"
+>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th>Summoner Name</th>
+      <th>Role</th>
+      <th>Level</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-participant>
+    <tr>
+      <td>{{ participant?.summonerName }}</td>
+      <td>{{ participant?.role }}</td>
+      <td>
+        Lv{{ gameWindow?.frames?.[9]?.redTeam?.participants?.[0]?.level }}
+      </td>
     </tr>
   </ng-template>
 </p-table>
