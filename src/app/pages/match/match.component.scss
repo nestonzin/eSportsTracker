@@ -1,6 +1,17 @@
-.match-wrapper {
+h1 {
+  text-align: center;
+}
+
+.bad-request {
+  padding: 5rem;
   display: flex;
-  justify-content: center;
-  gap: 5em;
+  flex-direction: column;
   align-items: center;
+}
+
+.bad-request img {
+  max-width: 5rem;
+  width: 100%;
+  height: auto;
+  filter: brightness(10000%);
 }
