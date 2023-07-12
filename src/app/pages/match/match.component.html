@@ -3,6 +3,7 @@
     [value]="gameWindow.gameMetadata.blueTeamMetadata.participantMetadata"
   >
     <ng-template pTemplate="header" let-columns>
+      <h1>BlueSide</h1>
       <tr>
         <th>Summoner Name</th>
         <th>Role</th>
@@ -31,7 +32,8 @@
   <p-table
     [value]="gameWindow.gameMetadata.redTeamMetadata.participantMetadata"
   >
-    <ng-template pTemplate="header" let-columns>
+    <ng-template pTemplate="header">
+      <h1>RedSide</h1>
       <tr>
         <th>Summoner Name</th>
         <th>Role</th>
@@ -54,10 +56,7 @@
         <td>
           {{ gameWindow.frames[9].redTeam.participants[0].creepScore }}
         </td>
-        {{
-          gameWindow.frames[9].redTeam.participants[0].kills
-        }}
-
+        <td>{{ gameWindow.frames[9].redTeam.participants[0].kills }}</td>
         <td>
           {{ gameWindow.frames[9].redTeam.participants[0].deaths }}
         </td>
@@ -75,7 +74,8 @@
     <h1>Opa!</h1>
     <h2>
       Parece que essa partida ainda não começou ou ocorreu algum erro. Por
-      favor, atualize a página ou volte para a página inicial.
+      favor, atualize a página ou clique <a routerLink="/">aqui</a> para voltar
+      a página inicial.
     </h2>
     <span> 😔 </span>
   </div>
