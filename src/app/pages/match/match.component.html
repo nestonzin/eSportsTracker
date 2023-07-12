@@ -8,6 +8,11 @@
       <th>Summoner Name</th>
       <th>Role</th>
       <th>Level</th>
+      <th>Gold</th>
+      <th>CreepScore</th>
+      <th>Kill</th>
+      <th>Death</th>
+      <th>Assists</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-participant>
@@ -16,6 +21,25 @@
       <td>{{ participant?.role }}</td>
       <td>
         Lv{{ gameWindow?.frames?.[9]?.blueTeam?.participants?.[0]?.level }}
+      </td>
+      <td>
+        {{ gameWindow?.frames?.[9]?.blueTeam?.participants?.[0]?.totalGold }}
+      </td>
+      <td>
+        {{ gameWindow?.frames?.[9]?.blueTeam?.participants?.[0]?.creepScore
+        }}
+      </td>
+      <td>
+        {{ gameWindow?.frames?.[9]?.blueTeam?.participants?.[0]?.kills
+        }}
+      </td>
+      <td>
+        {{ gameWindow?.frames?.[9]?.blueTeam?.participants?.[0]?.deaths
+        }}
+      </td>
+      <td>
+        {{ gameWindow?.frames?.[9]?.blueTeam?.participants?.[0]?.assists
+        }}
       </td>
     </tr>
   </ng-template>
@@ -29,6 +53,11 @@
       <th>Summoner Name</th>
       <th>Role</th>
       <th>Level</th>
+      <th>Gold</th>
+      <th>CreepScore</th>
+      <th>Kill</th>
+      <th>Death</th>
+      <th>Assists</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-participant>
@@ -37,6 +66,28 @@
       <td>{{ participant?.role }}</td>
       <td>
         Lv{{ gameWindow?.frames?.[9]?.redTeam?.participants?.[0]?.level }}
+      </td>
+      <td>
+        {{ gameWindow?.frames?.[9]?.redTeam?.participants?.[0]?.totalGold }}
+      </td>
+      <td>
+        {{ gameWindow?.frames?.[9]?.redTeam?.participants?.[0]?.creepScore
+        }}
+      </td>
+      <td>
+        {{ gameWindow?.frames?.[9]?.redTeam?.participants?.[0]?.kills
+        }}
+      </td>
+      <td>
+        {{ gameWindow?.frames?.[9]?.redTeam?.participants?.[0]?.deaths
+
+        }}
+      </td>
+      <td>
+        {{ gameWindow?.frames?.[9]?.redTeam?.participants?.[0]?.assists
+
+
+        }}
       </td>
     </tr>
   </ng-template>
