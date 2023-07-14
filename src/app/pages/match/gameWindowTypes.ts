@@ -46,7 +46,7 @@ export interface Frame {
   redTeam: TeamData;
 }
 
-export interface GameDetails {
+export interface GameWindow {
   esportsGameId: string;
   esportsMatchId: string;
   gameMetadata: GameMetadata;

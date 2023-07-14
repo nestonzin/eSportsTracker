@@ -1,10 +1,11 @@
-<div *ngIf="gameWindow">
+<div *ngIf="gameWindow" class="teste">
   <p-table
     [value]="gameWindow.gameMetadata.blueTeamMetadata.participantMetadata"
   >
     <ng-template pTemplate="header" let-columns>
       <h1>BlueSide</h1>
       <tr>
+        <th>Champion</th>
         <th>Summoner Name</th>
         <th>Role</th>
         <th>Level</th>
@@ -17,9 +18,16 @@
     </ng-template>
     <ng-template pTemplate="body" let-participant>
       <tr>
+        <td class="championWrapper">
+          {{ participant.championId }}
+          <img
+            src="{{ CHAMPIONS_URL + participant.championId + '.png' }}"
+            alt="{{ participant.championId }}"
+          />
+        </td>
         <td>{{ participant.summonerName }}</td>
         <td>{{ participant.role }}</td>
-        <td>Lv{{ gameWindow.frames[9].blueTeam.participants[0].level }}</td>
+        <td>{{ gameWindow.frames[9].blueTeam.participants[0].level }}</td>
         <td>{{ gameWindow.frames[9].blueTeam.participants[0].totalGold }}</td>
         <td>{{ gameWindow.frames[9].blueTeam.participants[0].creepScore }}</td>
         <td>{{ gameWindow.frames[9].blueTeam.participants[0].kills }}</td>
@@ -35,6 +43,7 @@
     <ng-template pTemplate="header">
       <h1>RedSide</h1>
       <tr>
+        <th>Champion</th>
         <th>Summoner Name</th>
         <th>Role</th>
         <th>Level</th>
@@ -47,9 +56,16 @@
     </ng-template>
     <ng-template pTemplate="body" let-participant>
       <tr>
-        <td>{{ participant?.summonerName }}</td>
-        <td>{{ participant?.role }}</td>
-        <td>Lv{{ gameWindow.frames[9].redTeam.participants[0].level }}</td>
+        <td class="championWrapper">
+          {{ participant.championId }}
+          <img
+            src="{{ CHAMPIONS_URL + participant.championId + '.png' }}"
+            alt="{{ participant.championId }}"
+          />
+        </td>
+        <td>{{ participant.summonerName }}</td>
+        <td>{{ participant.role }}</td>
+        <td>{{ gameWindow.frames[9].redTeam.participants[0].level }}</td>
         <td>
           {{ gameWindow.frames[9].redTeam.participants[0].totalGold }}
         </td>

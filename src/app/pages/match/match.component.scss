@@ -2,6 +2,29 @@ h1 {
   text-align: center;
 }
 
+// .teste {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-around;
+//   height: 70vw;
+//   padding: 1rem;
+//   background-color: red;
+// }
+
+.championWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.championWrapper img {
+  max-width: 3rem;
+  width: 100%;
+  height: auto;
+  border-radius: 70px;
+}
+
 .bad-request {
   padding: 5rem;
   display: flex;
@@ -14,4 +37,10 @@ h1 {
   width: 100%;
   height: auto;
   filter: brightness(10000%);
+}
+
+@media screen and (max-width: 768px) {
+  .teste {
+    height: auto;
+  }
 }

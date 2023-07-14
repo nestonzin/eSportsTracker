@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LolService } from '../../service/lol.service';
-import { GameDetails } from '../../pages/match/gameWindowTypes';
+import { GameWindow } from '../../pages/match/gameWindowTypes';
 
 @Component({
   selector: 'app-match',
@@ -10,10 +10,14 @@ import { GameDetails } from '../../pages/match/gameWindowTypes';
 })
 export class MatchComponent {
   id: string;
-  gameWindow: GameDetails | null = null;
+  gameWindow: GameWindow | null = null;
+  imageUrl: string;
+
+  CHAMPIONS_URL = 'https://ddragon.bangingheads.net/cdn/11.1.1/img/champion/';
 
   constructor(private route: ActivatedRoute, private lolService: LolService) {
     this.id = '';
+    this.imageUrl = '';
   }
   ngOnInit() {
     this.route.params.subscribe((params) => {
