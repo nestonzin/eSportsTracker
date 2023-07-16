@@ -11,6 +11,7 @@ import { GameWindow } from '../../pages/match/gameWindowTypes';
 export class MatchComponent {
   id: string;
   gameWindow: GameWindow | null = null;
+  gameDetails: any;
   imageUrl: string;
 
   CHAMPIONS_URL = 'https://ddragon.bangingheads.net/cdn/11.1.1/img/champion/';
@@ -22,15 +23,25 @@ export class MatchComponent {
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.id = params['id'];
-      this.lolService.getGameWindow(this.id).subscribe(
-        (gameWindow: any) => {
-          this.gameWindow = gameWindow;
-          console.log('detalhes ?', gameWindow);
-        },
-        (error: any) => {
-          console.log('error', error);
-        }
-      );
+      const startingTime = this.lolService.getISOMultiplyOf10();
+      setInterval(() => {
+        console.log('test setInterval');
+        this.lolService.getGameWindow(this.id, startingTime).subscribe(
+          (gameWindow: GameWindow) => {
+            this.gameWindow = gameWindow;
+            console.log('detalhes ?', gameWindow);
+          },
+          (error: string) => {
+            console.log('error', error);
+          }
+        );
+
+        this.lolService
+          .getLiveDetails(this.id, startingTime)
+          .subscribe((gameDetails: any) => {
+            console.log(gameDetails, 'LiveDetails');
+          });
+      }, 5000);
     });
   }
 }

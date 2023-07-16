@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LolService } from '../../service/lol.service';
 import { Schedule } from '../home/schedulesTypes';
 import { Router } from '@angular/router';
+import { FilterService } from 'primeng/api';
 
 @Component({
   selector: 'app-lol',
@@ -15,8 +16,13 @@ export class LolComponent {
   currentPage = 1;
   itemsPerPage = 8;
   isLoading: boolean = true;
+  filterTeams: string = '';
 
-  constructor(private LolService: LolService, private Router: Router) {}
+  constructor(
+    private LolService: LolService,
+    private Router: Router,
+    private filterService: FilterService
+  ) {}
 
   ngOnInit() {
     this.getScheduleData();
@@ -45,7 +51,6 @@ export class LolComponent {
 
     this.scheduleDataDisplayed = this.scheduleData.slice(startIndex, endIndex);
   }
-
 
   navigateToMatch(matchId: string) {
     const currentMatchId = BigInt(matchId);

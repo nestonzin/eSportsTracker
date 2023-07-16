@@ -1,4 +1,7 @@
 <div class="wrapper">
+  <!-- <form style="padding: 1rem">
+    <input type="text" [(ngModel)]="filterTeams" placeholder="Search by team" />
+  </form> -->
   <div class="custom-card-wrapper">
     <ng-container *ngIf="isLoading">
       <div
@@ -30,7 +33,7 @@
 
         <p-button
           label="Ir para a partida
-          "
+            "
           styleClass="p-button-outlined p-button-sm"
           (click)="navigateToMatch(event?.match?.id)"
         ></p-button>
@@ -38,11 +41,17 @@
         <div class="teams-wrapper">
           <div class="team-wrapper">
             <h3>{{ event?.match?.teams[0]?.code }}</h3>
-            <img src="{{ event?.match?.teams[0]?.image }}" alt="" />
+            <img
+              src="{{ event?.match?.teams[0]?.image }}"
+              alt="{{ event?.match?.teams[0]?.code }}"
+            />
           </div>
           <div class="team-wrapper">
             <h3>{{ event?.match?.teams[1]?.code }}</h3>
-            <img src="{{ event?.match?.teams[1]?.image }}" alt="" />
+            <img
+              src="{{ event?.match?.teams[1]?.image }}"
+              alt="{{ event?.match?.teams[1]?.code }}"
+            />
           </div>
         </div>
       </p-card>
