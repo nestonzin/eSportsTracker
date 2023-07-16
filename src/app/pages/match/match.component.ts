@@ -10,7 +10,7 @@ import { GameWindow } from '../../pages/match/gameWindowTypes';
 })
 export class MatchComponent {
   id: string;
-  gameWindow: GameWindow | null = null;
+  gameWindow: any;
   gameDetails: any;
   imageUrl: string;
 
@@ -27,7 +27,7 @@ export class MatchComponent {
       setInterval(() => {
         console.log('test setInterval');
         this.lolService.getGameWindow(this.id, startingTime).subscribe(
-          (gameWindow: GameWindow) => {
+          (gameWindow: any) => {
             this.gameWindow = gameWindow;
             console.log('detalhes ?', gameWindow);
           },
@@ -43,5 +43,9 @@ export class MatchComponent {
           });
       }, 5000);
     });
+  }
+
+  teste(participant: any) {
+    console.log('participant', participant);
   }
 }

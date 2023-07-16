@@ -14,9 +14,10 @@
         <th>Kill</th>
         <th>Death</th>
         <th>Assists</th>
+        <th>HP</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-participant>
+    <ng-template pTemplate="body" let-participant let-index="rowIndex">
       <tr>
         <td class="championWrapper">
           {{ participant.championId }}
@@ -27,12 +28,19 @@
         </td>
         <td>{{ participant.summonerName }}</td>
         <td>{{ participant.role }}</td>
-        <td>{{ gameWindow.frames[9].blueTeam.participants[0].level }}</td>
-        <td>{{ gameWindow.frames[9].blueTeam.participants[0].totalGold }}</td>
-        <td>{{ gameWindow.frames[9].blueTeam.participants[0].creepScore }}</td>
-        <td>{{ gameWindow.frames[9].blueTeam.participants[0].kills }}</td>
-        <td>{{ gameWindow.frames[9].blueTeam.participants[0].deaths }}</td>
-        <td>{{ gameWindow.frames[9].blueTeam.participants[0].assists }}</td>
+        <td>{{ gameWindow.frames[9].blueTeam.participants[index].level }}</td>
+        <td>
+          {{ gameWindow.frames[9].blueTeam.participants[index].totalGold }}
+        </td>
+        <td>
+          {{ gameWindow.frames[9].blueTeam.participants[index].creepScore }}
+        </td>
+        <td>{{ gameWindow.frames[9].blueTeam.participants[index].kills }}</td>
+        <td>{{ gameWindow.frames[9].blueTeam.participants[index].deaths }}</td>
+        <td>{{ gameWindow.frames[9].blueTeam.participants[index].assists }}</td>
+        <td>
+          {{ gameWindow.frames[9].blueTeam.participants[index].currentHealth }}
+        </td>
       </tr>
     </ng-template>
   </p-table>
@@ -52,9 +60,10 @@
         <th>Kill</th>
         <th>Death</th>
         <th>Assists</th>
+        <th>HP</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-participant>
+    <ng-template pTemplate="body" let-participant let-index="rowIndex">
       <tr>
         <td class="championWrapper">
           {{ participant.championId }}
@@ -65,19 +74,22 @@
         </td>
         <td>{{ participant.summonerName }}</td>
         <td>{{ participant.role }}</td>
-        <td>{{ gameWindow.frames[9].redTeam.participants[0].level }}</td>
+        <td>{{ gameWindow.frames[9].redTeam.participants[index].level }}</td>
         <td>
-          {{ gameWindow.frames[9].redTeam.participants[0].totalGold }}
+          {{ gameWindow.frames[9].redTeam.participants[index].totalGold }}
         </td>
         <td>
-          {{ gameWindow.frames[9].redTeam.participants[0].creepScore }}
+          {{ gameWindow.frames[9].redTeam.participants[index].creepScore }}
         </td>
-        <td>{{ gameWindow.frames[9].redTeam.participants[0].kills }}</td>
+        <td>{{ gameWindow.frames[9].redTeam.participants[index].kills }}</td>
         <td>
-          {{ gameWindow.frames[9].redTeam.participants[0].deaths }}
+          {{ gameWindow.frames[9].redTeam.participants[index].deaths }}
         </td>
         <td>
-          {{ gameWindow.frames[9].redTeam.participants[0].assists }}
+          {{ gameWindow.frames[9].redTeam.participants[index].assists }}
+        </td>
+        <td>
+          {{ gameWindow.frames[9].redTeam.participants[index].currentHealth }}
         </td>
       </tr>
     </ng-template>
