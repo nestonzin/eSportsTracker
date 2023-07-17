@@ -6,18 +6,23 @@ export interface ParticipantMetadata {
   role: string;
 }
 
-export interface TeamMetadata {
+export interface BlueTeamMetadata {
+  esportsTeamId: string;
+  participantMetadata: ParticipantMetadata[];
+}
+
+export interface RedTeamMetadata {
   esportsTeamId: string;
   participantMetadata: ParticipantMetadata[];
 }
 
 export interface GameMetadata {
   patchVersion: string;
-  blueTeamMetadata: TeamMetadata;
-  redTeamMetadata: TeamMetadata;
+  blueTeamMetadata: BlueTeamMetadata;
+  redTeamMetadata: RedTeamMetadata;
 }
 
-export interface ParticipantData {
+export interface Participant {
   participantId: number;
   totalGold: number;
   level: number;
@@ -29,21 +34,31 @@ export interface ParticipantData {
   maxHealth: number;
 }
 
-export interface TeamData {
+export interface BlueTeam {
   totalGold: number;
   inhibitors: number;
   towers: number;
   barons: number;
   totalKills: number;
-  dragons: any[]; // Altere para a interface correta, se houver
-  participants: ParticipantData[];
+  dragons: string[];
+  participants: Participant[];
+}
+
+export interface RedTeam {
+  totalGold: number;
+  inhibitors: number;
+  towers: number;
+  barons: number;
+  totalKills: number;
+  dragons: string[];
+  participants: Participant[];
 }
 
 export interface Frame {
-  rfc460Timestamp: string;
+  rfc460Timestamp: Date;
   gameState: string;
-  blueTeam: TeamData;
-  redTeam: TeamData;
+  blueTeam: BlueTeam;
+  redTeam: RedTeam;
 }
 
 export interface GameWindow {

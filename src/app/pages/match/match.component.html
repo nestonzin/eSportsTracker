@@ -1,110 +1,170 @@
 <div *ngIf="gameWindow" class="teste">
-  <p-table
-    [value]="gameWindow.gameMetadata.blueTeamMetadata.participantMetadata"
-  >
-    <ng-template pTemplate="header" let-columns>
-      <h1>BlueSide</h1>
-      <tr>
-        <th>Champion</th>
-        <th>Summoner Name</th>
-        <th>Role</th>
-        <th>Level</th>
-        <th>Gold</th>
-        <th>CreepScore</th>
-        <th>Kill</th>
-        <th>Death</th>
-        <th>Assists</th>
-        <th>HP</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-participant let-index="rowIndex">
-      <tr>
-        <td class="championWrapper">
-          {{ participant.championId }}
-          <img
-            src="{{ CHAMPIONS_URL + participant.championId + '.png' }}"
-            alt="{{ participant.championId }}"
-          />
-        </td>
-        <td>{{ participant.summonerName }}</td>
-        <td>{{ participant.role }}</td>
-        <td>{{ gameWindow.frames[9].blueTeam.participants[index].level }}</td>
-        <td>
-          {{ gameWindow.frames[9].blueTeam.participants[index].totalGold }}
-        </td>
-        <td>
-          {{ gameWindow.frames[9].blueTeam.participants[index].creepScore }}
-        </td>
-        <td>{{ gameWindow.frames[9].blueTeam.participants[index].kills }}</td>
-        <td>{{ gameWindow.frames[9].blueTeam.participants[index].deaths }}</td>
-        <td>{{ gameWindow.frames[9].blueTeam.participants[index].assists }}</td>
-        <td>
-          {{ gameWindow.frames[9].blueTeam.participants[index].currentHealth }}
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
+  <ng-container *ngIf="isLoading">
+    <div
+      class="spinner-container"
+      style="
+        grid-column: 1 / -1;
+        grid-row: 1;
+        text-align: center;
+        padding: 10rem;
+      "
+    >
+      <p-progressSpinner
+        aria-label="Loading"
+        class="custom-spinner"
+      ></p-progressSpinner>
+    </div>
+  </ng-container>
 
-  <p-table
-    [value]="gameWindow.gameMetadata.redTeamMetadata.participantMetadata"
-  >
-    <ng-template pTemplate="header">
-      <h1>RedSide</h1>
-      <tr>
-        <th>Champion</th>
-        <th>Summoner Name</th>
-        <th>Role</th>
-        <th>Level</th>
-        <th>Gold</th>
-        <th>CreepScore</th>
-        <th>Kill</th>
-        <th>Death</th>
-        <th>Assists</th>
-        <th>HP</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-participant let-index="rowIndex">
-      <tr>
-        <td class="championWrapper">
-          {{ participant.championId }}
-          <img
-            src="{{ CHAMPIONS_URL + participant.championId + '.png' }}"
-            alt="{{ participant.championId }}"
-          />
-        </td>
-        <td>{{ participant.summonerName }}</td>
-        <td>{{ participant.role }}</td>
-        <td>{{ gameWindow.frames[9].redTeam.participants[index].level }}</td>
-        <td>
-          {{ gameWindow.frames[9].redTeam.participants[index].totalGold }}
-        </td>
-        <td>
-          {{ gameWindow.frames[9].redTeam.participants[index].creepScore }}
-        </td>
-        <td>{{ gameWindow.frames[9].redTeam.participants[index].kills }}</td>
-        <td>
-          {{ gameWindow.frames[9].redTeam.participants[index].deaths }}
-        </td>
-        <td>
-          {{ gameWindow.frames[9].redTeam.participants[index].assists }}
-        </td>
-        <td>
-          {{ gameWindow.frames[9].redTeam.participants[index].currentHealth }}
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
-</div>
+  <ng-container *ngIf="!isLoading">
+    <p-table
+      [value]="gameWindow.gameMetadata.blueTeamMetadata.participantMetadata"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <h1>BlueSide</h1>
+        <tr>
+          <th>Champion</th>
+          <th>Summoner Name</th>
+          <th>Role</th>
+          <th>Level</th>
+          <th>Gold</th>
+          <th>CreepScore</th>
+          <th>Kill</th>
+          <th>Death</th>
+          <th>Assists</th>
+          <th>HP</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-participant let-index="rowIndex">
+        <tr>
+          <td class="championWrapper">
+            {{ participant.championId }}
+            <img
+              src="{{ CHAMPIONS_URL + participant.championId + '.png' }}"
+              alt="{{ participant.championId }}"
+            />
+          </td>
+          <td>{{ participant.summonerName }}</td>
+          <td>{{ participant.role }}</td>
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                .participants[index].level
+            }}
+          </td>
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                .participants[index].totalGold
+            }}
+          </td>
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                .participants[index].creepScore
+            }}
+          </td>
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                .participants[index].kills
+            }}
+          </td>
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                .participants[index].deaths
+            }}
+          </td>
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                .participants[index].assists
+            }}
+          </td>
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                .participants[index].currentHealth
+            }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
 
-<div *ngIf="!gameWindow">
-  <div class="bad-request">
-    <img src="../../../assets/badstatus.png" alt="" />
-    <h1>Opa!</h1>
-    <h2>
-      Parece que essa partida ainda não começou ou ocorreu algum erro. Por
-      favor, atualize a página ou clique <a routerLink="/">aqui</a> para voltar
-      a página inicial.
-    </h2>
-    <span> 😔 </span>
-  </div>
+    <p-table
+      [value]="gameWindow.gameMetadata.redTeamMetadata.participantMetadata"
+    >
+      <ng-template pTemplate="header">
+        <h1>RedSide</h1>
+        <tr>
+          <th>Champion</th>
+          <th>Summoner Name</th>
+          <th>Role</th>
+          <th>Level</th>
+          <th>Gold</th>
+          <th>CreepScore</th>
+          <th>Kill</th>
+          <th>Death</th>
+          <th>Assists</th>
+          <th>HP</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-participant let-index="rowIndex">
+        <tr>
+          <td class="championWrapper">
+            {{ participant.championId }}
+            <img
+              src="{{ CHAMPIONS_URL + participant.championId + '.png' }}"
+              alt="{{ participant.championId }}"
+            />
+          </td>
+          <td>{{ participant.summonerName }}</td>
+          <td>{{ participant.role }}</td>
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].redTeam
+                .participants[index].level
+            }}
+          </td>
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].redTeam
+                .participants[index].totalGold
+            }}
+          </td>
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].redTeam
+                .participants[index].creepScore
+            }}
+          </td>
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].redTeam
+                .participants[index].kills
+            }}
+          </td>
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].redTeam
+                .participants[index].deaths
+            }}
+          </td>
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].redTeam
+                .participants[index].assists
+            }}
+          </td>
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].redTeam
+                .participants[index].currentHealth
+            }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </ng-container>
 </div>

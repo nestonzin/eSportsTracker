@@ -10,9 +10,10 @@ import { GameWindow } from '../../pages/match/gameWindowTypes';
 })
 export class MatchComponent {
   id: string;
-  gameWindow: any;
+  gameWindow: GameWindow | null = null;
   gameDetails: any;
   imageUrl: string;
+  isLoading: boolean = true;
 
   CHAMPIONS_URL = 'https://ddragon.bangingheads.net/cdn/11.1.1/img/champion/';
 
@@ -23,29 +24,23 @@ export class MatchComponent {
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.id = params['id'];
-      const startingTime = this.lolService.getISOMultiplyOf10();
+      this.isLoading = true;
       setInterval(() => {
-        console.log('test setInterval');
-        this.lolService.getGameWindow(this.id, startingTime).subscribe(
-          (gameWindow: any) => {
+        const startingTime = this.lolService.getISOMultiplyOf10();
+        this.lolService
+          .getGameWindow(this.id, startingTime)
+          .subscribe((gameWindow: GameWindow) => {
             this.gameWindow = gameWindow;
             console.log('detalhes ?', gameWindow);
-          },
-          (error: string) => {
-            console.log('error', error);
-          }
-        );
+          });
 
         this.lolService
           .getLiveDetails(this.id, startingTime)
           .subscribe((gameDetails: any) => {
             console.log(gameDetails, 'LiveDetails');
           });
-      }, 5000);
+      }, 2000);
     });
-  }
-
-  teste(participant: any) {
-    console.log('participant', participant);
+    this.isLoading = false;
   }
 }
