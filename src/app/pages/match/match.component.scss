@@ -28,8 +28,17 @@ h1 {
   border-radius: 70px;
 }
 
+.InfosWrapper {
+  display: flex;
+  background-color: red;
+  justify-content: space-around;
+  align-items: center;
+  gap: 5rem;
+}
+
 .SideInfos {
   display: flex;
+  background-color: yellow;
   align-items: center;
   justify-content: space-around;
 }
