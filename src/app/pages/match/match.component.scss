@@ -30,7 +30,6 @@ h1 {
 
 .InfosWrapper {
   display: flex;
-  background-color: red;
   justify-content: space-around;
   align-items: center;
   gap: 5rem;
@@ -38,8 +37,8 @@ h1 {
 
 .SideInfos {
   display: flex;
-  background-color: yellow;
   align-items: center;
+  gap: 2rem;
   justify-content: space-around;
 }
 
