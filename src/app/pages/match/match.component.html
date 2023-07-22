@@ -17,35 +17,89 @@
   </ng-container>
 
   <ng-container *ngIf="!isLoading">
+    <h1>BlueSide</h1>
+    <div class="SideInfos">
+      <div class="Info">
+        <img src="../../../assets/tower.svg" alt="Torres" />
+        <span>
+          {{ gameWindow.frames[gameWindow.frames.length - 1].redTeam.towers }}
+        </span>
+      </div>
+
+      <div class="Info">
+        <img src="../../../assets/baron.svg" alt="" />
+        <span>
+          {{ gameWindow.frames[gameWindow.frames.length - 1].blueTeam.barons }}
+        </span>
+      </div>
+
+      <div class="Info">
+        <img src="../../../assets/kill.svg" alt="" />
+        <span>
+          {{
+            gameWindow.frames[gameWindow.frames.length - 1].blueTeam.totalKills
+          }}
+        </span>
+      </div>
+
+      <div class="Info">
+        <img src="../../../assets/gold.svg" alt="" />
+        <span>
+          {{
+            gameWindow.frames[gameWindow.frames.length - 1].blueTeam.totalGold
+          }}
+        </span>
+      </div>
+      <div class="Info">
+        <img src="../../../assets/inhibitor.svg" alt="" />
+        <span>
+          {{
+            gameWindow.frames[gameWindow.frames.length - 1].blueTeam.inhibitors
+          }}
+        </span>
+      </div>
+      <!-- <p>
+              Drakes?
+              {{
+                gameWindow.frames[gameWindow.frames.length - 1].blueTeam.dragons
+              }}
+            </p> -->
+    </div>
     <p-table
       [value]="gameWindow.gameMetadata.blueTeamMetadata.participantMetadata"
+      styleClass="p-datatable-sm"
     >
       <ng-template pTemplate="header" let-columns>
-        <h1>BlueSide</h1>
         <tr>
           <th>Champion</th>
           <th>Summoner Name</th>
-          <th>Role</th>
+          <th>HP</th>
           <th>Level</th>
           <th>Gold</th>
           <th>CreepScore</th>
           <th>Kill</th>
           <th>Death</th>
           <th>Assists</th>
-          <th>HP</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-participant let-index="rowIndex">
         <tr>
           <td class="championWrapper">
-            {{ participant.championId }}
             <img
               src="{{ CHAMPIONS_URL + participant.championId + '.png' }}"
               alt="{{ participant.championId }}"
             />
+            {{ participant.championId }}
           </td>
           <td>{{ participant.summonerName }}</td>
-          <td>{{ participant.role }}</td>
+
+          <td>
+            {{
+              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                .participants[index].currentHealth
+            }}
+          </td>
+
           <td>
             {{
               gameWindow.frames[gameWindow.frames.length - 1].blueTeam
@@ -82,21 +136,60 @@
                 .participants[index].assists
             }}
           </td>
-          <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
-                .participants[index].currentHealth
-            }}
-          </td>
         </tr>
       </ng-template>
     </p-table>
 
+    <h1>RedSide</h1>
+    <div class="SideInfos">
+      <div class="Info">
+        <img src="../../../assets/tower.svg" alt="" />
+        <span>
+          {{ gameWindow.frames[gameWindow.frames.length - 1].redTeam.towers }}
+        </span>
+      </div>
+      <div class="Info">
+        <img src="../../../assets/baron.svg" alt="" />
+        <span>
+          {{ gameWindow.frames[gameWindow.frames.length - 1].redTeam.barons }}
+        </span>
+      </div>
+      <div class="Info">
+        <img src="../../../assets/kill.svg" alt="" />
+        <p>
+          {{
+            gameWindow.frames[gameWindow.frames.length - 1].redTeam.totalKills
+          }}
+        </p>
+      </div>
+      <div class="Info">
+        <img src="../../../assets/gold.svg" alt="" />
+        <span>
+          {{
+            gameWindow.frames[gameWindow.frames.length - 1].redTeam.totalGold
+          }}
+        </span>
+      </div>
+      <div class="Info">
+        <img src="../../../assets/inhibitor.svg" alt="" />
+        <p>
+          {{
+            gameWindow.frames[gameWindow.frames.length - 1].redTeam.inhibitors
+          }}
+        </p>
+      </div>
+      <!-- <p>
+              Drakes?
+              {{
+                gameWindow.frames[gameWindow.frames.length - 1].redTeam.dragons
+              }}
+          </p> -->
+    </div>
     <p-table
       [value]="gameWindow.gameMetadata.redTeamMetadata.participantMetadata"
+      styleClass="p-datatable-sm"
     >
       <ng-template pTemplate="header">
-        <h1>RedSide</h1>
         <tr>
           <th>Champion</th>
           <th>Summoner Name</th>
@@ -113,11 +206,11 @@
       <ng-template pTemplate="body" let-participant let-index="rowIndex">
         <tr>
           <td class="championWrapper">
-            {{ participant.championId }}
             <img
               src="{{ CHAMPIONS_URL + participant.championId + '.png' }}"
               alt="{{ participant.championId }}"
             />
+            {{ participant.championId }}
           </td>
           <td>{{ participant.summonerName }}</td>
           <td>{{ participant.role }}</td>

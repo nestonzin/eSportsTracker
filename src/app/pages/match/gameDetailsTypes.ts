@@ -34,6 +34,6 @@ export interface Frame {
   participants: Participant[];
 }
 
-export interface Detais {
+export interface GameDetails {
   frames: Frame[];
 }

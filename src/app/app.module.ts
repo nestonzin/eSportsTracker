@@ -27,6 +27,7 @@ import { DividerModule } from 'primeng/divider';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { MatchComponent } from './pages/match/match.component';
 import { TableModule } from 'primeng/table';
+import { ProgressBarModule } from 'primeng/progressbar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +58,7 @@ import { TableModule } from 'primeng/table';
     DividerModule,
     ProgressSpinnerModule,
     TableModule,
+    ProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

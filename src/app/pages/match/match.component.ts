@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LolService } from '../../service/lol.service';
 import { GameWindow } from '../../pages/match/gameWindowTypes';
+import { GameDetails } from './gameDetailsTypes';
 
 @Component({
   selector: 'app-match',
@@ -10,11 +11,12 @@ import { GameWindow } from '../../pages/match/gameWindowTypes';
 })
 export class MatchComponent {
   id: string;
-  gameWindow: GameWindow | null = null;
-  gameDetails: any;
   imageUrl: string;
   isLoading: boolean = true;
+  gameWindow: GameWindow | null = null;
+  gameDetails: any;
 
+  currentHP: number = 0;
   CHAMPIONS_URL = 'https://ddragon.bangingheads.net/cdn/11.1.1/img/champion/';
 
   constructor(private route: ActivatedRoute, private lolService: LolService) {
@@ -24,23 +26,53 @@ export class MatchComponent {
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.id = params['id'];
-      this.isLoading = true;
-      setInterval(() => {
-        const startingTime = this.lolService.getISOMultiplyOf10();
-        this.lolService
-          .getGameWindow(this.id, startingTime)
-          .subscribe((gameWindow: GameWindow) => {
-            this.gameWindow = gameWindow;
-            console.log('detalhes ?', gameWindow);
-          });
-
-        this.lolService
-          .getLiveDetails(this.id, startingTime)
-          .subscribe((gameDetails: any) => {
-            console.log(gameDetails, 'LiveDetails');
-          });
-      }, 2000);
+      this.startPolling();
     });
+    this.isLoading = true;
+  }
+
+  ngAfterViewInit() {
     this.isLoading = false;
   }
+
+  startPolling() {
+    setInterval(() => {
+      const startingTime = this.lolService.getISOMultiplyOf10();
+      this.fetchGameWindow(startingTime);
+      this.fetchGameDetails(startingTime);
+    }, 5000);
+  }
+
+  fetchGameWindow(startingTime: string) {
+    this.lolService
+      .getGameWindow(this.id, startingTime)
+      .subscribe((gameWindow: GameWindow) => {
+        this.gameWindow = gameWindow;
+        console.log(gameWindow, 'gameWindow');
+      });
+  }
+
+  fetchGameDetails(startingTime: string) {
+    this.lolService
+      .getLiveDetails(this.id, startingTime)
+      .subscribe((gameDetails: any) => {
+        this.gameDetails = gameDetails;
+        console.log(gameDetails, 'gameDetails');
+      });
+  }
+
+ 
+
+  // getCombinedGameData() {
+  //   if (!this.gameWindow || !this.gameDetails) {
+  //     return null;
+  //   }
+
+  //   const combinedGameData = {
+  //     gameWindow: this.gameWindow,
+  //     gameDetails: this.gameDetails,
+  //   };
+  //   console.log(combinedGameData, 'objeto combinando os dados');
+  //   return combinedGameData;
+  // }
 }

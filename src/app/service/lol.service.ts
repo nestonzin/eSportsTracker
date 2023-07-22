@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ISchedule } from '../pages/home/schedulesTypes';
+import { GameWindow } from '../pages/match/gameWindowTypes';
 
 @Injectable({
   providedIn: 'root',
@@ -22,23 +23,21 @@ export class LolService {
   });
 
   getSchedule(): Observable<ISchedule> {
-    const params = new HttpParams().set('hl', 'pt-BR');
-
     return this.http.get<ISchedule>(this.apiUrl, {
       headers: this.headers,
-      params: params,
+      params: { hl: 'pt-BR' },
     });
   }
 
-  getGameWindow(gameId: string, startingTime: string): Observable<any> {
+  getGameWindow(gameId: string, startingTime: string): Observable<GameWindow> {
     const url = `${this.apiMatchWindow}/${gameId}`;
-    return this.http.get(url, {
+    return this.http.get<GameWindow>(url, {
       headers: this.headers,
       params: { hl: 'pt-BR', startingTime },
     });
   }
 
-  getLiveDetails(gameId: string, startingTime: string) {
+  getLiveDetails(gameId: string, startingTime: string): Observable<any> {
     const url = `${this.apiMatchLiveDetails}/${gameId}`;
     return this.http.get(url, {
       headers: this.headers,
@@ -49,13 +48,10 @@ export class LolService {
   getISOMultiplyOf10() {
     const date = new Date();
     date.setMilliseconds(0);
-
     if (date.getSeconds() % 10 !== 0) {
       date.setSeconds(date.getSeconds() - (date.getSeconds() % 10));
     }
-
     date.setSeconds(date.getSeconds() - 60);
-
     return date.toISOString();
   }
 }
