@@ -1,7 +1,10 @@
-export interface PerkMetadata {
-  styleId: number;
-  subStyleId: number;
-  perks: number[];
+export interface gameDetails {
+  frames: Frame[];
+}
+
+export interface Frame {
+  rfc460Timestamp: string;
+  participants: Participant[];
 }
 
 export interface Participant {
@@ -29,11 +32,8 @@ export interface Participant {
   abilities: string[];
 }
 
-export interface Frame {
-  rfc460Timestamp: Date;
-  participants: Participant[];
-}
-
-export interface GameDetails {
-  frames: Frame[];
+export interface PerkMetadata {
+  styleId: number;
+  subStyleId: number;
+  perks: number[];
 }

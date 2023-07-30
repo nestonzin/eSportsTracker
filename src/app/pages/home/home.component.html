@@ -18,11 +18,11 @@
     </ng-container>
     <ng-container *ngIf="!isLoading">
       <p-card
-        header="{{ event?.blockName }}"
+        header="{{ event?.league.name }}"
         *ngFor="let event of scheduleDataDisplayed"
         class="card"
       >
-        <h1>{{ event?.league.name }}</h1>
+        <h1>{{ event?.blockName }}</h1>
         <h2>Status: {{ event?.state }}</h2>
         <div class="teams-wrapper">
           <div class="team-wrapper">

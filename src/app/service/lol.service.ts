@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { map } from 'rxjs';
 import { Observable } from 'rxjs';
 import { ISchedule } from '../pages/home/schedulesTypes';
-import { GameWindow } from '../pages/match/gameWindowTypes';
+import { gameWindow } from '../pages/match/gameWindowTypes';
+import { gameDetails } from '../pages/match/gameDetailsTypes';
+import { eventDetails } from '../pages/match/gameEventDetailsTypes';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +14,10 @@ export class LolService {
   private apiUrl =
     'https://esports-api.lolesports.com/persisted/gw/getSchedule';
 
-  private apiMatchWindow = 'https://feed.lolesports.com/livestats/v1/window';
+  private EventMatch = 'https://feed.lolesports.com/livestats/v1';
 
-  private apiMatchLiveDetails =
-    'https://feed.lolesports.com/livestats/v1/details';
+  eventDetails =
+    'https://esports-api.lolesports.com/persisted/gw/getEventDetails';
 
   constructor(private http: HttpClient) {}
 
@@ -29,20 +32,29 @@ export class LolService {
     });
   }
 
-  getGameWindow(gameId: string, startingTime: string): Observable<GameWindow> {
-    const url = `${this.apiMatchWindow}/${gameId}`;
-    return this.http.get<GameWindow>(url, {
+  getGameWindow(gameId: string, startingTime: string): Observable<gameWindow> {
+    const url = `${this.EventMatch}/window/${gameId}`;
+    return this.http.get<gameWindow>(url, {
       headers: this.headers,
       params: { hl: 'pt-BR', startingTime },
     });
   }
 
   getLiveDetails(gameId: string, startingTime: string): Observable<any> {
-    const url = `${this.apiMatchLiveDetails}/${gameId}`;
+    const url = `${this.EventMatch}/details/${gameId}`;
     return this.http.get(url, {
       headers: this.headers,
       params: { hl: 'pt-BR', startingTime },
     });
+  }
+
+  getEventDetails(gameId: string): Observable<eventDetails> {
+    const url = `${this.eventDetails}?hl=pt-BR&id=${gameId}`;
+    return this.http.get<eventDetails>(url, { headers: this.headers }).pipe(
+      map((response: any) => {
+        return response as eventDetails;
+      })
+    );
   }
 
   getISOMultiplyOf10() {

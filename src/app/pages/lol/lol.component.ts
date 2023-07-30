@@ -54,8 +54,8 @@ export class LolComponent {
 
   navigateToMatch(matchId: string) {
     const currentMatchId = BigInt(matchId);
-    const nextMatchId = (currentMatchId + BigInt(1)).toString();
-    const route = `/match/${nextMatchId}`;
+    const urlMatchId = (currentMatchId + BigInt(1)).toString();
+    const route = `/match/${urlMatchId}`;
     this.Router.navigate([route]);
   }
 }

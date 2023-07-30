@@ -17,90 +17,131 @@
   </ng-container>
 
   <ng-container *ngIf="!isLoading">
-    <div class="InfosWrapper">
-      <div class="SideInfos">
-        <h1>BlueSide</h1>
-        <div class="Info">
-          <img src="../../../assets/tower.svg" alt="Torres" />
-          <span>
-            {{ gameWindow.frames[gameWindow.frames.length - 1].redTeam.towers }}
-          </span>
+    <div class="InfosWrapper" *ngIf="eventDetails">
+      <div class="blueTeamInfos">
+        <div class="tag">
+          <img
+            src="{{ eventDetails.data.event.match.teams[0].image }}"
+            alt=""
+          />
+          <span>{{ eventDetails.data.event.match.teams[0].name }}</span>
         </div>
 
-        <div class="Info">
-          <img src="../../../assets/baron.svg" alt="" />
-          <span>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].blueTeam.barons
-            }}
-          </span>
-        </div>
+        <div class="containerInfos">
+          <div class="Info">
+            <img src="../../../assets/tower.svg" alt="Torres" />
+            <span>
+              {{
+                gameWindow.frames[gameWindow.frames.length - 1].blueTeam.towers
+              }}
+            </span>
+          </div>
 
-        <div class="Info">
-          <img src="../../../assets/kill.svg" alt="" />
-          <span>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
-                .totalKills
-            }}
-          </span>
-        </div>
+          <div class="Info">
+            <img src="../../../assets/baron.svg" alt="" />
+            <span>
+              {{
+                gameWindow.frames[gameWindow.frames.length - 1].blueTeam.barons
+              }}
+            </span>
+          </div>
 
-        <div class="Info">
-          <img src="../../../assets/gold.svg" alt="" />
-          <span>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].blueTeam.totalGold
-            }}
-          </span>
+          <div class="Info">
+            <img src="../../../assets/kill.svg" alt="" />
+            <span>
+              {{
+                gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                  .totalKills
+              }}
+            </span>
+          </div>
+
+          <div class="Info">
+            <img src="../../../assets/gold.svg" alt="" />
+            <span>
+              {{
+                gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                  .totalGold
+              }}
+            </span>
+          </div>
+          <div class="Info">
+            <img src="../../../assets/inhibitor.svg" alt="" />
+            <span>
+              {{
+                gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                  .inhibitors
+              }}
+            </span>
+          </div>
         </div>
-        <div class="Info">
-          <img src="../../../assets/inhibitor.svg" alt="" />
-          <span>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
-                .inhibitors
-            }}
-          </span>
+        <div class="drakeWrapper">
+          <div class="drakes" *ngFor="let drake of blueTeamDrakes">
+            <img [src]="drake" [alt]="drake" />
+          </div>
         </div>
       </div>
-      <div class="SideInfos">
-        <h1>RedSide</h1>
-        <div class="Info">
-          <img src="../../../assets/tower.svg" alt="" />
-          <span>
-            {{ gameWindow.frames[gameWindow.frames.length - 1].redTeam.towers }}
-          </span>
+
+      <h1>VS</h1>
+
+      <div class="redTeamInfos">
+        <div class="tag">
+          <img
+            src="{{ eventDetails.data.event.match.teams[1].image }}"
+            alt=""
+          />
+          <span>{{ eventDetails.data.event.match.teams[1].name }}</span>
         </div>
-        <div class="Info">
-          <img src="../../../assets/baron.svg" alt="" />
-          <span>
-            {{ gameWindow.frames[gameWindow.frames.length - 1].redTeam.barons }}
-          </span>
+
+        <div class="containerInfos">
+          <div class="Info">
+            <img src="../../../assets/tower.svg" alt="" />
+            <span>
+              {{
+                gameWindow.frames[gameWindow.frames.length - 1].redTeam.towers
+              }}
+            </span>
+          </div>
+          <div class="Info">
+            <img src="../../../assets/baron.svg" alt="" />
+            <span>
+              {{
+                gameWindow.frames[gameWindow.frames.length - 1].redTeam.barons
+              }}
+            </span>
+          </div>
+          <div class="Info">
+            <img src="../../../assets/kill.svg" alt="" />
+            <span>
+              {{
+                gameWindow.frames[gameWindow.frames.length - 1].redTeam
+                  .totalKills
+              }}
+            </span>
+          </div>
+          <div class="Info">
+            <img src="../../../assets/gold.svg" alt="" />
+            <span>
+              {{
+                gameWindow.frames[gameWindow.frames.length - 1].redTeam
+                  .totalGold
+              }}
+            </span>
+          </div>
+          <div class="Info">
+            <img src="../../../assets/inhibitor.svg" alt="" />
+            <span>
+              {{
+                gameWindow.frames[gameWindow.frames.length - 1].redTeam
+                  .inhibitors
+              }}
+            </span>
+          </div>
         </div>
-        <div class="Info">
-          <img src="../../../assets/kill.svg" alt="" />
-          <span>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].redTeam.totalKills
-            }}
-          </span>
-        </div>
-        <div class="Info">
-          <img src="../../../assets/gold.svg" alt="" />
-          <span>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].redTeam.totalGold
-            }}
-          </span>
-        </div>
-        <div class="Info">
-          <img src="../../../assets/inhibitor.svg" alt="" />
-          <span>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].redTeam.inhibitors
-            }}
-          </span>
+        <div class="drakeWrapper">
+          <div class="drakes" *ngFor="let drake of redTeamDrakes">
+            <img src="{{ drake }}" alt="{{ drake }}" />
+          </div>
         </div>
       </div>
     </div>

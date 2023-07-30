@@ -61,7 +61,7 @@ export interface Frame {
   redTeam: RedTeam;
 }
 
-export interface GameWindow extends Iterable<Frame> {
+export interface gameWindow extends Iterable<Frame> {
   esportsGameId: string;
   esportsMatchId: string;
   gameMetadata: GameMetadata;
