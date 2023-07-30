@@ -45,7 +45,7 @@ export class MatchComponent {
       this.fetchGameWindow(startingTime);
       this.fetchGameDetails(startingTime);
       this.renderTeamsDrakes();
-    }, 5000);
+    }, 1000);
   }
 
   fetchGameWindow(startingTime: string) {
