@@ -80,13 +80,13 @@ export class MatchComponent {
   renderTeamsDrakes() {
     const frames = this.gameWindow?.frames || [];
     const drakeImages: { [key: string]: string } = {
-      cloud: 'dragon-cloud.svg',
-      elder: 'dragon-elder.svg',
-      infernal: 'dragon-infernal.svg',
-      mountain: 'dragon-mountain.svg',
-      ocean: 'dragon-ocean.svg',
-      chemtech: 'dragon-chemtech.svg',
-      hextech: 'dragon-hextech.svg',
+      cloud: '../../../assets/dragon-cloud.svg',
+      elder: '../../../assets/dragon-elder.svg',
+      infernal: '../../../assets/dragon-infernal.svg',
+      mountain: '../../../assets/dragon-mountain.svg',
+      ocean: '../../../assets/dragon-ocean.svg',
+      chemtech: '../../../assets/dragon-chemtech.svg',
+      hextech: '../../../assets/dragon-hextech.svg',
     };
 
     frames.map((frame) => {
