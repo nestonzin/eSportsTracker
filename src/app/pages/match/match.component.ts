@@ -53,7 +53,7 @@ export class MatchComponent {
       .getGameWindow(this.id, startingTime)
       .subscribe((gameWindow: gameWindow) => {
         this.gameWindow = gameWindow;
-        console.log(gameWindow, 'gameWindow');
+        // console.log(gameWindow, 'gameWindow');
       });
   }
 
@@ -62,7 +62,7 @@ export class MatchComponent {
       .getLiveDetails(this.id, startingTime)
       .subscribe((gameDetails: any) => {
         this.gameDetails = gameDetails;
-        console.log(gameDetails, 'gameDetails');
+        // console.log(gameDetails, 'gameDetails');
       });
   }
 
@@ -98,9 +98,6 @@ export class MatchComponent {
         frame.redTeam.dragons,
         drakeImages
       );
-
-      console.log('blueTeam Drakes', this.blueTeamDrakes);
-      console.log('redTeam Drakes', this.redTeamDrakes);
     });
   }
 
@@ -111,16 +108,3 @@ export class MatchComponent {
     return drakes.map((drakeType) => drakeImages[drakeType]);
   }
 }
-
-// getCombinedGameData() {
-//   if (!this.gameWindow || !this.gameDetails) {
-//     return null;
-//   }
-
-//   const combinedGameData = {
-//     gameWindow: this.gameWindow,
-//     gameDetails: this.gameDetails,
-//   };
-//   console.log(combinedGameData, 'objeto combinando os dados');
-//   return combinedGameData;
-// }
