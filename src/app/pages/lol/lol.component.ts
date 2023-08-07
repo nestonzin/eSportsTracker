@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LolService } from '../../service/lol.service';
-import { Schedule } from '../home/schedulesTypes';
+import { ISchedule } from '../home/schedulesTypes';
 import { Router } from '@angular/router';
 import { FilterService } from 'primeng/api';
 
@@ -12,6 +12,10 @@ import { FilterService } from 'primeng/api';
 export class LolComponent {
   scheduleData: any = [];
   scheduleDataDisplayed: any;
+
+  // gameInProgress: ISchedule | null = null;
+  gameInProgress: any = [];
+  unstartedGames: any = [];
 
   currentPage = 1;
   itemsPerPage = 8;
@@ -26,6 +30,8 @@ export class LolComponent {
 
   ngOnInit() {
     this.getScheduleData();
+    this.fetchSchedueleGamesInProgress();
+    this.fetchUnstartedScheduleGames();
   }
 
   getScheduleData() {
@@ -41,6 +47,40 @@ export class LolComponent {
       },
       error: (error) => {
         console.log('erro', error);
+      },
+    });
+  }
+
+  fetchSchedueleGamesInProgress() {
+    this.isLoading = true;
+
+    this.LolService.getSchedule().subscribe({
+      next: (match) => {
+        this.gameInProgress = match.data.schedule.events.filter(
+          (match) => match.state === 'inProgress'
+        );
+
+        console.log(this.gameInProgress, 'filtro de jogos inProgress');
+      },
+
+      error: (error) => {
+        console.log('erro', error);
+      },
+    });
+  }
+
+  fetchUnstartedScheduleGames() {
+    this.isLoading = true;
+
+    this.LolService.getSchedule().subscribe({
+      next: (match) => {
+        this.unstartedGames = match.data.schedule.events.filter(
+          (match) => match.state === 'unstarted'
+        );
+        console.log(this.unstartedGames, 'filtro de jogos unStarted');
+      },
+      error: (error) => {
+        console.log(error, 'erro');
       },
     });
   }

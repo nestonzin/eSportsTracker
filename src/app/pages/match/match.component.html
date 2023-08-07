@@ -17,143 +17,145 @@
   </ng-container>
 
   <ng-container *ngIf="!isLoading && gameWindow">
-    <div class="InfosWrapper" *ngIf="eventDetails">
-      <div class="blueTeamInfos">
-        <div class="tag">
-          <img
-            src="{{ eventDetails.data.event.match.teams[0].image }}"
-            alt=""
-          />
-          <span>{{ eventDetails.data.event.match.teams[0].name }}</span>
-        </div>
-
-        <div class="containerInfos">
-          <div class="Info">
-            <img src="../../../assets/inhibitor.svg" alt="Inibitors" />
-            <span>
-              {{
-                gameWindow.frames[gameWindow.frames.length - 1].blueTeam
-                  .inhibitors
-              }}
-            </span>
+    <div class="wrapperwrapper">
+      <p-toast></p-toast>
+      <div class="InfosWrapper" *ngIf="eventDetails">
+        <div class="blueTeamInfos">
+          <div class="tag">
+            <img
+              src="{{ eventDetails.data.event.match.teams[0].image }}"
+              alt=""
+            />
+            <span>{{ eventDetails.data.event.match.teams[0].name }}</span>
           </div>
 
-          <div class="Info">
-            <img src="../../../assets/baron.svg" alt="Barons" />
-            <span>
-              {{
-                gameWindow.frames[gameWindow.frames.length - 1].blueTeam.barons
-              }}
-            </span>
-          </div>
+          <div class="containerInfos">
+            <div class="Info">
+              <img src="../../../assets/inhibitor.svg" alt="Inibitors" />
+              <span>
+                {{
+                  gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                    .inhibitors
+                }}
+              </span>
+            </div>
 
-          <div class="Info">
-            <img src="../../../assets/tower.svg" alt="Torres" />
-            <span>
-              {{
-                gameWindow.frames[gameWindow.frames.length - 1].blueTeam.towers
-              }}
-            </span>
-          </div>
+            <div class="Info">
+              <img src="../../../assets/baron.svg" alt="Barons" />
+              <span>
+                {{
+                  gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                    .barons
+                }}
+              </span>
+            </div>
 
-          <div class="Info">
-            <img src="../../../assets/gold.svg" alt="totalGold" />
-            <span>
-              {{
-                gameWindow.frames[gameWindow.frames.length - 1].blueTeam
-                  .totalGold
-              }}
-            </span>
-          </div>
+            <div class="Info">
+              <img src="../../../assets/tower.svg" alt="Torres" />
+              <span>
+                {{
+                  gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                    .towers
+                }}
+              </span>
+            </div>
 
-          <div class="Info">
-            <img src="../../../assets/kill.svg" alt="Kills" />
-            <span>
-              {{
-                gameWindow.frames[gameWindow.frames.length - 1].blueTeam
-                  .totalKills
-              }}
-            </span>
-          </div>
-        </div>
-        <div class="drakeWrapper">
-          <div class="drakes" *ngFor="let drake of blueTeamDrakes">
-            <img [src]="drake" />
-          </div>
-        </div>
-      </div>
+            <div class="Info">
+              <img src="../../../assets/gold.svg" alt="totalGold" />
+              <span>
+                {{
+                  gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                    .totalGold
+                }}
+              </span>
+            </div>
 
-      <h1>VS</h1>
-
-      <div class="redTeamInfos">
-        <div class="tag">
-          <img
-            src="{{ eventDetails.data.event.match.teams[1].image }}"
-            alt=""
-          />
-          <span>{{ eventDetails.data.event.match.teams[1].name }}</span>
-        </div>
-
-        <div class="containerInfos">
-          <div class="Info">
-            <img src="../../../assets/kill.svg" alt="Kills" />
-            <span>
-              {{
-                gameWindow.frames[gameWindow.frames.length - 1].redTeam
-                  .totalKills
-              }}
-            </span>
+            <div class="Info">
+              <img src="../../../assets/kill.svg" alt="Kills" />
+              <span>
+                {{
+                  gameWindow.frames[gameWindow.frames.length - 1].blueTeam
+                    .totalKills
+                }}
+              </span>
+            </div>
           </div>
-
-          <div class="Info">
-            <img src="../../../assets/gold.svg" alt="totalGold" />
-            <span>
-              {{
-                gameWindow.frames[gameWindow.frames.length - 1].redTeam
-                  .totalGold
-              }}
-            </span>
-          </div>
-
-          <div class="Info">
-            <img src="../../../assets/tower.svg" alt="Torres" />
-            <span>
-              {{
-                gameWindow.frames[gameWindow.frames.length - 1].redTeam.towers
-              }}
-            </span>
-          </div>
-          <div class="Info">
-            <img src="../../../assets/baron.svg" alt="Barons" />
-            <span>
-              {{
-                gameWindow.frames[gameWindow.frames.length - 1].redTeam.barons
-              }}
-            </span>
-          </div>
-
-          <div class="Info">
-            <img src="../../../assets/inhibitor.svg" alt="Inibitors" />
-            <span>
-              {{
-                gameWindow.frames[gameWindow.frames.length - 1].redTeam
-                  .inhibitors
-              }}
-            </span>
+          <div class="drakeWrapper">
+            <div class="drakes" *ngFor="let drake of blueTeamDrakes">
+              <img [src]="drake" />
+            </div>
           </div>
         </div>
-        <div class="drakeWrapper">
-          <div class="drakes" *ngFor="let drake of redTeamDrakes">
-            <img src="{{ drake }}" />
+
+        <h1>VS</h1>
+
+        <div class="redTeamInfos">
+          <div class="tag">
+            <img
+              src="{{ eventDetails.data.event.match.teams[1].image }}"
+              alt=""
+            />
+            <span>{{ eventDetails.data.event.match.teams[1].name }}</span>
+          </div>
+
+          <div class="containerInfos">
+            <div class="Info">
+              <img src="../../../assets/kill.svg" alt="Kills" />
+              <span>
+                {{
+                  gameWindow.frames[gameWindow.frames.length - 1].redTeam
+                    .totalKills
+                }}
+              </span>
+            </div>
+
+            <div class="Info">
+              <img src="../../../assets/gold.svg" alt="totalGold" />
+              <span>
+                {{
+                  gameWindow.frames[gameWindow.frames.length - 1].redTeam
+                    .totalGold
+                }}
+              </span>
+            </div>
+
+            <div class="Info">
+              <img src="../../../assets/tower.svg" alt="Torres" />
+              <span>
+                {{
+                  gameWindow.frames[gameWindow.frames.length - 1].redTeam.towers
+                }}
+              </span>
+            </div>
+            <div class="Info">
+              <img src="../../../assets/baron.svg" alt="Barons" />
+              <span>
+                {{
+                  gameWindow.frames[gameWindow.frames.length - 1].redTeam.barons
+                }}
+              </span>
+            </div>
+
+            <div class="Info">
+              <img src="../../../assets/inhibitor.svg" alt="Inibitors" />
+              <span>
+                {{
+                  gameWindow.frames[gameWindow.frames.length - 1].redTeam
+                    .inhibitors
+                }}
+              </span>
+            </div>
+          </div>
+          <div class="drakeWrapper">
+            <div class="drakes" *ngFor="let drake of redTeamDrakes">
+              <img src="{{ drake }}" />
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <p-table
-      [value]="gameWindow.gameMetadata.blueTeamMetadata.participantMetadata"
-      styleClass="p-datatable-sm"
-    >
+    <p-table [value]="getBlueTeamParticipants()" styleClass="p-datatable-sm">
       <ng-template pTemplate="header" let-columns>
         <tr>
           <th>Champion</th>
@@ -179,56 +181,32 @@
           <td>{{ participant.summonerName }}</td>
 
           <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
-                .participants[index].currentHealth
-            }}
+            {{ participant.currentHealth }}
           </td>
 
           <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
-                .participants[index].level
-            }}
+            {{ participant.level }}
           </td>
           <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
-                .participants[index].totalGold
-            }}
+            {{ participant.totalGold }}
           </td>
           <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
-                .participants[index].creepScore
-            }}
+            {{ participant.creepScore }}
           </td>
           <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
-                .participants[index].kills
-            }}
+            {{ participant.kills }}
           </td>
           <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
-                .participants[index].deaths
-            }}
+            {{ participant.deaths }}
           </td>
           <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].blueTeam
-                .participants[index].assists
-            }}
+            {{ participant.assists }}
           </td>
         </tr>
       </ng-template>
     </p-table>
 
-    <p-table
-      [value]="gameWindow.gameMetadata.redTeamMetadata.participantMetadata"
-      styleClass="p-datatable-sm"
-    >
+    <p-table [value]="getRedTeamParticipants()" styleClass="p-datatable-sm">
       <ng-template pTemplate="header">
         <tr>
           <th>Champion</th>
@@ -253,46 +231,25 @@
           </td>
           <td>{{ participant.summonerName }}</td>
           <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].redTeam
-                .participants[index].currentHealth
-            }}
+            {{ participant.currentHealth }}
           </td>
           <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].redTeam
-                .participants[index].level
-            }}
+            {{ participant.level }}
           </td>
           <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].redTeam
-                .participants[index].totalGold
-            }}
+            {{ participant.totalGold }}
           </td>
           <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].redTeam
-                .participants[index].creepScore
-            }}
+            {{ participant.creepScore }}
           </td>
           <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].redTeam
-                .participants[index].kills
-            }}
+            {{ participant.kills }}
           </td>
           <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].redTeam
-                .participants[index].deaths
-            }}
+            {{ participant.deaths }}
           </td>
           <td>
-            {{
-              gameWindow.frames[gameWindow.frames.length - 1].redTeam
-                .participants[index].assists
-            }}
+            {{ participant.assists }}
           </td>
         </tr>
       </ng-template>
